@@ -1,12 +1,30 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from "@angular/http";
 
+
+// Components
 import { AppComponent }  from './app.component';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './components/home/home.component';
+import {LoginComponent} from './components/login/login.component';
+
+// Services
+import {UserService} from './services/auth.service';
+
+// Some global routing
+import {routing} from './app.routing';
+
 
 @NgModule({
-  imports:      [ BrowserModule ],
-  declarations: [ AppComponent, HomeComponent ],
-  bootstrap:    [ AppComponent ]
+  imports:      [ BrowserModule, routing, HttpModule ],
+  declarations: [ 
+                  AppComponent, 
+                  HomeComponent,
+                  LoginComponent
+                ],
+  bootstrap:    [ AppComponent ],
+  providers:    [
+                  UserService
+                ]
 })
 export class AppModule { }
