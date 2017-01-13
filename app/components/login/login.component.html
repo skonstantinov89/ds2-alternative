@@ -1,0 +1,19 @@
+    <div class="container middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h3 class="logo-name">DS</h3>
+
+            </div>
+            <h4>Login</h4>
+            <form class="m-t" role="form"(submit)="login($event)">
+                <div class="form-group">
+                    <input type="text" name='username' [(ngModel)]="username" class="form-control" placeholder="Username" required="">
+                    <input type="password" name='password' [(ngModel)]="password" class="form-control" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block full-width m-b">Вход</button>
+                <a class="full-width m-b" routerLink=''>Назад</a> 
+                
+            </form>
+        </div>
+    </div>

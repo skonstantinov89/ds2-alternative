@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
-  "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "name": "directstorage",
+  "version": "2.0.0",
+  "description": "Direct Storage archive management system",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
@@ -11,7 +11,11 @@
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "test-once": "tsc && karma start karma.conf.js --single-run",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "serve": "http-server . -p 5556",
+    "build": "npm run tsc",
+    "build_prod": "npm run build && browserify -s main app/main.js > dist/bundle.js && npm run minify",
+    "minify": "uglifyjs dist/bundle.js --screw-ie8 --compress --mangle --output dist/bundle.min.js"
   },
   "keywords": [],
   "author": "",

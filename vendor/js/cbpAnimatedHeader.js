@@ -27,14 +27,15 @@ var cbpAnimatedHeader = (function() {
     function scrollPage() {
         var sy = scrollY();
         header = document.querySelector( '.navbar-fixed-top' );
-
-        if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-scroll' );
+        if (header == NaN){
+            if ( sy >= changeHeaderOn ) {
+                classie.add( header, 'navbar-scroll' );
+            }
+            else {
+                classie.remove( header, 'navbar-scroll' );
+            }
+            didScroll = false;
         }
-        else {
-            classie.remove( header, 'navbar-scroll' );
-        }
-        didScroll = false;
     }
 
     function scrollY() {
