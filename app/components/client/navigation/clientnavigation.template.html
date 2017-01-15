@@ -25,7 +25,7 @@
               </ul>
 
             </li>
-            <li (click)="activeMenu($event)" [ngClass]="{'active': activeNumber === 2 }">
+            <li (click)="activeMenu(2)" [ngClass]="{'active': activeNumber === 2 }">
                 <a><i class="fa fa-diamond"></i> <span class="nav-label">Проекти</span></a>
                 <ul [ngClass]="{'nav nav-second-level': activeNumber === 2,'nav nav-second-level collapse': activeNumber !== 2 }">
                     <li><a href="#">Преглед на проекти</a></li>

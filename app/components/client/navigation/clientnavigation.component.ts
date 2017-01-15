@@ -8,15 +8,15 @@ import {Router} from '@angular/router';
 })
 export class clientNavigationComponent  {
     private activeNumber: number;;
-    constructor(private render:Renderer){
+    constructor(){
     }
-  activeMenu(event) {
-      console.log(this.render.);
-    // if (this.activeNumber === newValue) {
-    //   this.activeNumber = 0;
-    // }
-    // else {
-    //   this.activeNumber = newValue;
-    // }
+  activeMenu(newValue:any) {
+      console.log(newValue);
+    if (this.activeNumber === newValue) {
+      this.activeNumber = 0;
+    }
+    else {
+      this.activeNumber = newValue;
+    }
   }
 }
