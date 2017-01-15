@@ -25,7 +25,7 @@ export class LoginComponent  {
     }
     checkGroup(token:string){
       this.authService.checkGroup(token).subscribe((result) =>{
-        console.log('Group found: '+ result);
+        console.log('Group found: '+ result.body);
       });
     }
  }

@@ -13,8 +13,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "serve": "http-server . -p 5556",
-    "build": "npm run tsc",
-    "build_prod": "npm run build && browserify -s main app/main.js > dist/bundle.js && npm run minify",
+    "build": "tsc",
+    "build_prod": "npm run build && browserify -s main dist/main.js > dist/bundle.js && npm run minify",
     "minify": "uglifyjs dist/bundle.js --screw-ie8 --compress --mangle --output dist/bundle.min.js"
   },
   "keywords": [],

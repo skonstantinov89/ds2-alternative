@@ -1,1 +1,148 @@
-clients base MENU template
+<div id="wrapper">
+<client-nav> </client-nav>
+
+   <div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " (click)='toggleNavigation()'><i class="fa fa-bars"></i></a>
+    </div>
+    </nav>
+    </div>
+        <div class="wrapper wrapper-content">
+    <div class="row">
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Нов архив</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins"><брой заявки></h1>
+                            <small>Неприключени заявки</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>За Връщане</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins"><брой заявки></h1>
+                            <small>Неприключени заявки</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>За Доставяне</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins"><брой заявки></h1>
+                            <small>Неприключени заявки</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <span class="label label-danger pull-right">внимание</span>
+                            <h5>За унищожение</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins"><брой заявки></h1>
+                            <small>Неприключени заявки</small>
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Последни заявки</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <table class="table table-hover no-margins">
+                                <thead>
+                                <tr>
+                                    <th>Номер на заявка</th>
+                                    <th>Дата</th>
+                                    <th>Потребител</th>
+                                    <th>Проект</th>
+                                    <th>Статус</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><small><номер-на-заявка></small></td>
+                                    <td><i class="fa fa-clock-o"></i> 11:20pm</td>
+                                    <td>Samantha@gmail.com</td>
+                                    <td class="text-navy"> <i class="fa"></i> <име-на-проект> </td>
+                                    <td>Samantha@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small></td>
+                                    <td><i class="fa fa-clock-o"></i> 10:40am</td>
+                                    <td>Monica@gmail.com</td>
+                                    <td class="text-navy"> <i class="fa"></i>  <име-на-проект> </td>
+                                    <td>Monica@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small> </td>
+                                    <td><i class="fa fa-clock-o"></i> 01:30pm</td>
+                                    <td>John@dskbank.com</td>
+                                    <td class="text-navy"> <i class="fa"></i>  <име-на-проект> </td>
+                                    <td>John@dskbank.com</td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small> </td>
+                                    <td><i class="fa fa-clock-o"></i> 02:20pm</td>
+                                    <td>Agnes@dis.bg</td>
+                                    <td class="text-navy"> <i class="fa"></i> <име-на-проект> </td>
+                                    <td>Agnes@dis.bg</td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small> </td>
+                                    <td><i class="fa fa-clock-o"></i> 09:40pm</td>
+                                    <td>Janet@aps.bg</td>
+                                    <td class="text-navy"> <i class="fa"></i>  <име-на-проект> </td>
+                                    <td>Janet@aps.bg</td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small> </td>
+                                    <td><i class="fa fa-clock-o"></i> 04:10am</td>
+                                    <td>Amelia@mail.bg</td>
+                                    <td class="text-navy"> <i class="fa"></i>  <име-на-проект> </td>
+                                    <td class="text-navy"> <small><номер-на-заявка></small></td>
+                                </tr>
+                                <tr>
+                                    <td><small><номер-на-заявка></small> </td>
+                                    <td><i class="fa fa-clock-o"></i> 12:08am</td>
+                                    <td>Damian@abv.bg</td>
+                                    <td class="text-navy">   <име-на-проект> </td>
+                                    <td class="text-navy"><i class="fa fa-level-up"></i> Доставя се</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

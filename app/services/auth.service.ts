@@ -13,7 +13,7 @@ export class authService{
 
     constructor(private _http: Http){
         //_http - _ is not necessery but if its a service module (Http in this case) its a good practice
-        console.log('Auth service initialized...');       
+        console.log('Auth service initialized...');
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
     authenticate(username: string, password: string){
@@ -41,9 +41,9 @@ export class authService{
     checkGroup(token: any){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', this.auth_type + ' ' + token+'1');
+        headers.append('Authorization', this.auth_type + ' ' + token);
         return this._http.get(this.base_url+this.auth_me_url,{headers})
             .map((res:Response) => res)
-            .catch((error:any) => Observable.throw(false)); 
+            .catch((error:any) => Observable.throw(false));
     }
 }

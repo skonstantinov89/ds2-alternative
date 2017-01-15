@@ -1,0 +1,53 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#/operator/home">
+                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><Име на оператор></strong>
+                        </span> <span class="text-muted text-xs block">Оператор <b class="caret"></b></span> </span> </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="#/operator/home">Profile</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="mailbox.html">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li (click)="activeMenu(1)" [ngClass]="{'active': activeNumber === 1 }">
+              <a><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Заявки</span><span class="fa arrow"></span></a>
+              <ul [ngClass]="{'nav nav-second-level': activeNumber === 1,'nav nav-second-level collapse': activeNumber !== 1 }">
+                  <li><a href="#/operator/request/new-archive">Нов архив</a></li>
+                  <li><a href="#/operator/request/new-archive">Доставка към клиент</a></li>
+                  <li><a href="#/operator/request/new-archive">Връщане от клиент</a></li>
+                  <li><a href="#/operator/request/new-archive">Унищожаване</a></li>
+              </ul>
+
+            </li>
+            <li (click)="activeMenu($event)" [ngClass]="{'active': activeNumber === 2 }">
+                <a><i class="fa fa-diamond"></i> <span class="nav-label">Проекти</span></a>
+                <ul [ngClass]="{'nav nav-second-level': activeNumber === 2,'nav nav-second-level collapse': activeNumber !== 2 }">
+                    <li><a href="#">Преглед на проекти</a></li>
+                </ul>
+
+            </li>
+            <li (click)="activeMenu(3)" [ngClass]="{'active': activeNumber === 3 }">
+              <a><i class="fa fa-th-large"></i> <span class="nav-label">Клиенти</span> <span class="fa arrow"></span></a>
+              <ul [ngClass]="{'nav nav-second-level': activeNumber === 3,'nav nav-second-level collapse': activeNumber !== 3 }">
+                  <li><a href="#">Преглед на клиент</a></li>
+              </ul>
+
+            </li>
+            <li (click)="activeMenu(4)" [ngClass]="{'active': activeNumber === 4 }">
+                <a><i class="fa fa-picture-o"></i> <span class="nav-label">Операции</span><span class="fa arrow"></span></a>
+                <ul [ngClass]="{'nav nav-second-level': activeNumber === 4,'nav nav-second-level collapse': activeNumber !== 4 }">
+                    <li><a href="#/operator/operations/box-creation">Създаване на кашони</a></li>
+                    <li><a href="#/operator/operations/box-placement">Поставяне на кашони</a></li>
+                    <li><a href="#/operator/operations/unit-addition">Добавяне на документи</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>

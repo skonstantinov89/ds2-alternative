@@ -9,7 +9,8 @@ import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {NavHomeComponent} from './components/home/nav-home/nav-home.component';
 import {SliderComponent} from './components/home/slider/slider.component';
-// Clients Components 
+// Clients Components
+import {clientNavigationComponent} from './components/client/navigation/clientnavigation.component';
 import {clientComponent} from './components/client/base/client.component';
 
 // Services
@@ -21,13 +22,14 @@ import {routing} from './app.routing';
 
 @NgModule({
   imports:      [ BrowserModule, routing, HttpModule, FormsModule ],
-  declarations: [ 
-                  AppComponent, 
+  declarations: [
+                  AppComponent,
                   HomeComponent,
                   LoginComponent,
                   NavHomeComponent,
                   SliderComponent,
-                  clientComponent
+                  clientNavigationComponent,
+                  clientComponent,
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [
