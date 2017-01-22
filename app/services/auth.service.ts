@@ -2,6 +2,10 @@ import { Observable } from 'rxjs/Rx';
 import {Injectable} from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+
 
 @Injectable()
 export class authService{
@@ -10,7 +14,7 @@ export class authService{
     private loggedIn = false;
     private login_url = '/auth/login/';
     private auth_me_url = '/auth/me/';
-
+    private error: any;
     constructor(private _http: Http){
         //_http - _ is not necessery but if its a service module (Http in this case) its a good practice
         console.log('Auth service initialized...');
@@ -21,17 +25,13 @@ export class authService{
         headers.append('Content-Type', 'application/json');
 
         return this._http.post(this.base_url+this.login_url, JSON.stringify({username,password}),{headers})
-                    .map(res => res.json())
-                    .map((res) => {
-                        console.log ('res status: ' + res.token);
-                        if (res){
-                            localStorage.setItem('auth_token', res.token);
-                            this.loggedIn = true;
-                            return res.token;
-                        }
-                        else{
-                            return false;
-                        }
+                    .catch((error:any) => Observable.throw(false)).share()
+                    .map((res: Response) => {
+                        let result = res.json();
+                        console.log(result.token);
+                        localStorage.setItem('auth_token', result.token);
+                        console.log('successful login');
+                        return result;
                     });
 
     }
@@ -43,7 +43,7 @@ export class authService{
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', this.auth_type + ' ' + token);
         return this._http.get(this.base_url+this.auth_me_url,{headers})
-            .map((res:Response) => res)
+            .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(false));
     }
 }
