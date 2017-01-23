@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {authService} from '../../services/auth.service';
 import {Router} from '@angular/router';
-import $ from 'jquery';
+
+
 @Component({
   moduleId:module.id,
   selector: 'login',
@@ -13,12 +14,12 @@ export class LoginComponent  {
     constructor(private authService: authService, private router: Router){
 
     }
-    login(event: any, input1, input2){
+    login(event: any){
       event.preventDefault();
       this.authService.authenticate(this.username, this.password).subscribe(
       (result => result.json()), 
       (error) => {
-        input1.invalid();      
+        return {'authentication': 'fail'}      
       });
     }
     checkGroup(token:string){

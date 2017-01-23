@@ -25,7 +25,7 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      "ng2-cookies":               'npm:ng2-cookies/src/ng2-cookies.js',
+      "angular2-cookie":               'npm:angular2-cookie',
 
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
@@ -36,6 +36,10 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'angular2-cookie':{
+        main: './core.js',
         defaultExtension: 'js'
       }
     }

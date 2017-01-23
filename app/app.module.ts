@@ -15,6 +15,7 @@ import {clientComponent} from './components/client/base/client.component';
 
 // Services
 import {authService} from './services/auth.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 // Some global routing
 import {routing} from './app.routing';
@@ -33,7 +34,8 @@ import {routing} from './app.routing';
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [
-                  authService
+                  authService,
+                  CookieService
                 ]
 })
 export class AppModule { }

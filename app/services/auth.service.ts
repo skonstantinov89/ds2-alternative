@@ -25,13 +25,12 @@ export class authService{
         headers.append('Content-Type', 'application/json');
 
         return this._http.post(this.base_url+this.login_url, JSON.stringify({username,password}),{headers})
-                    .catch((error:any) => Observable.throw(false)).share()
+                    .catch((error:any) => Observable.throw({'status': 400})).share()
                     .map((res: Response) => {
                         let result = res.json();
                         console.log(result.token);
-                        localStorage.setItem('auth_token', result.token);
                         console.log('successful login');
-                        return result;
+                        return {'status': 200, 'token': result.token};
                     });
 
     }
