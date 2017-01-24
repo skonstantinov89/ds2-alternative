@@ -48,16 +48,11 @@ export class authService{
         let headers = new Headers();
         let token = localStorage.getItem('auth_token');    
         headers.append('Authorization', this.auth_type + ' ' + token);
-        if (this.isLoggedIn() != false){
-            return this._http.post(this.base_url + this.logout_url, JSON.stringify({}),{headers})
-                .catch((error:any) => Observable.throw({'status':400}))
+        return this._http.post(this.base_url + this.logout_url, JSON.stringify({}),{headers})
                 .map((res) =>{
                     res = res.json();
                     localStorage.removeItem('auth_token');
+                    return res;
                 });
-        }
-        else{
-            return {'status': 200}
-        }
     }
 }

@@ -18,7 +18,7 @@ export class LogoutComponent  {
             (result: any) =>{
                 this.router.navigate(['']);
                 },
-            (err) =>{
+            (err: any) =>{
                 this.error = true;
                 this.router.navigate(['login']);
         });
