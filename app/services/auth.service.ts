@@ -19,18 +19,14 @@ export class authService{
     authenticate(username: string, password: string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+
         return this._http.post(this.base_url+this.login_url, JSON.stringify({username,password}),{headers})
-                    .map(res => res.json())
-                    .map((res) => {
-                        console.log('res status: ' + res.status);
-                        if (res){
-                            localStorage.setItem('auth_token', res.token);
-                            this.loggedIn = true;
-                            return res.status;
-                        }
-                        else{
-                            return false;
-                        }
+                    .catch((error:any) => Observable.throw({'status': 400})).share()
+                    .map((res: Response) => {
+                        let result = res.json();
+                        console.log(result.token);
+                        console.log('successful login');
+                        return {'status': 200, 'token': result.token};
                     });
 
     }
@@ -43,9 +39,6 @@ export class authService{
         headers.append('Authorization', this.auth_type + ' ' + token);
         return this._http.get(this.base_url+this.auth_me_url,{headers})
             .map((res:Response) => res.json())
-            .map((res) =>{
-                console.log(res);
-                return res;
-            });
+            .catch((error:any) => Observable.throw(false));
     }
 }
