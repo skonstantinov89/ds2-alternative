@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms"
 import { AppComponent }  from './app.component';
 import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
+import {LogoutComponent} from './components/logout/logout.component';
 import {NavHomeComponent} from './components/home/nav-home/nav-home.component';
 import {SliderComponent} from './components/home/slider/slider.component';
 // Clients Components
@@ -15,8 +16,11 @@ import {operatorComponent} from './components/operator/base/operator.component';
 
 // Services
 import {authService} from './services/auth.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+// import { CookieService } from 'angular2-cookie/services/cookies.service';
 
+// Guards
+
+import {LoginAuthGuard} from './guards/auth.guard';
 // Some global routing
 import {routing} from './app.routing';
 
@@ -27,6 +31,7 @@ import {routing} from './app.routing';
                   AppComponent,
                   HomeComponent,
                   LoginComponent,
+                  LogoutComponent,
                   NavHomeComponent,
                   SliderComponent,
                   operatorNavigationComponent,
@@ -35,7 +40,8 @@ import {routing} from './app.routing';
   bootstrap:    [ AppComponent ],
   providers:    [
                   authService,
-                  CookieService
+                  LoginAuthGuard
+                  // CookieService
                 ]
 })
 export class AppModule { }
