@@ -3,10 +3,10 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: 'client-nav',
-  templateUrl: `clientnavigation.template.html`,
+  selector: 'operator-nav',
+  templateUrl: 'operatornavigation.template.html',
 })
-export class clientNavigationComponent  {
+export class operatorNavigationComponent  {
     private activeNumber: number;;
     constructor(){
     }

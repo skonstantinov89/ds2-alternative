@@ -10,8 +10,8 @@ import {LoginComponent} from './components/login/login.component';
 import {NavHomeComponent} from './components/home/nav-home/nav-home.component';
 import {SliderComponent} from './components/home/slider/slider.component';
 // Clients Components
-import {clientNavigationComponent} from './components/client/navigation/clientnavigation.component';
-import {clientComponent} from './components/client/base/client.component';
+import {operatorNavigationComponent} from './components/operator/navigation/operatornavigation.component';
+import {operatorComponent} from './components/operator/base/operator.component';
 
 // Services
 import {authService} from './services/auth.service';
@@ -28,8 +28,8 @@ import {routing} from './app.routing';
                   LoginComponent,
                   NavHomeComponent,
                   SliderComponent,
-                  clientNavigationComponent,
-                  clientComponent,
+                  operatorNavigationComponent,
+                  operatorComponent,
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [

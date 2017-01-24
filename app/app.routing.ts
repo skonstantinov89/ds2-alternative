@@ -4,7 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 
-import {clientComponent} from './components/client/base/client.component';
+import {operatorComponent} from './components/operator/base/operator.component';
 const appRoutes: Routes = [
     {
         path:'',
@@ -15,8 +15,8 @@ const appRoutes: Routes = [
         component: LoginComponent
     },
     {
-        path:'clients',
-        component: clientComponent
+        path:'operator',
+        component: operatorComponent
     }
 
 ];

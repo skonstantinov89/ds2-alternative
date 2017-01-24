@@ -7,17 +7,17 @@
 
     <title>Direct Storage</title>
 
-    <link href="node_modules/vendor/css/bootstrap.min.css" rel="stylesheet">
-    <link href="node_modules/vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Toastr style -->
-    <link href="node_modules/vendor/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="vendor/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="node_modules/vendor/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="vendor/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
-    <link href="node_modules/vendor/css/animate.css" rel="stylesheet">
-    <link href="node_modules/vendor/css/style.css" rel="stylesheet">
+    <link href="vendor/css/animate.css" rel="stylesheet">
+    <link href="vendor/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="node_modules/vendor/css/style.css" rel="stylesheet">
+    <link href="vendor/css/style.css" rel="stylesheet">
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
 
@@ -38,48 +38,103 @@
     </script>
 </head>
 
-<body id="page-top">
+<body id='page-top'>
     <base href="/">
     <my-app>Loading...</my-app>
 
     <!-- Mainly scripts -->
-    <script src="node_modules/vendor/js/jquery-2.1.1.js"></script>
-    <script src="node_modules/vendor/js/bootstrap.min.js"></script>
-    <script src="node_modules/vendor/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="node_modules/vendor/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="vendor/js/jquery-2.1.1.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="vendor/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Flot -->
-    <script src="node_modules/vendor/js/plugins/flot/jquery.flot.js"></script>
-    <script src="node_modules/vendor/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="node_modules/vendor/js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="node_modules/vendor/js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="node_modules/vendor/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="vendor/js/plugins/flot/jquery.flot.js"></script>
+    <script src="vendor/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="vendor/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="vendor/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="vendor/js/plugins/flot/jquery.flot.pie.js"></script>
 
     <!-- Peity -->
-    <script src="node_modules/vendor/js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="node_modules/vendor/js/demo/peity-demo.js"></script>
+    <script src="vendor/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="vendor/js/demo/peity-demo.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="node_modules/vendor/js/inspinia.js"></script>
-    <script src="node_modules/vendor/js/plugins/pace/pace.min.js"></script>
+    <script src="vendor/js/inspinia.js"></script>
+    <script src="vendor/js/plugins/pace/pace.min.js"></script>
+    <script src="vendor/js/plugins/wow/wow.min.js"></script>
+
 
     <!-- jQuery UI -->
-    <script src="node_modules/vendor/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="vendor/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- GITTER -->
-    <script src="node_modules/vendor/js/plugins/gritter/jquery.gritter.min.js"></script>
+    <script src="vendor/js/plugins/gritter/jquery.gritter.min.js"></script>
 
     <!-- Sparkline -->
-    <script src="node_modules/vendor/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="vendor/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Sparkline demo data  -->
-    <script src="node_modules/vendor/js/demo/sparkline-demo.js"></script>
+    <script src="vendor/js/demo/sparkline-demo.js"></script>
 
     <!-- ChartJS-->
-    <script src="node_modules/vendor/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="vendor/js/plugins/chartJs/Chart.min.js"></script>
 
     <!-- Toastr -->
-    <script src="node_modules/vendor/js/plugins/toastr/toastr.min.js"></script>
+    <script src="vendor/js/plugins/toastr/toastr.min.js"></script>
 
+       <script>
+    $(document).ready(function () {
+        $('div').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, div').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            header = document.querySelector( '.navbar-default' );
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+</script>
     </body>
     </html>

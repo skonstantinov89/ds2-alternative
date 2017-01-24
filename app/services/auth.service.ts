@@ -19,15 +19,14 @@ export class authService{
     authenticate(username: string, password: string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-
         return this._http.post(this.base_url+this.login_url, JSON.stringify({username,password}),{headers})
                     .map(res => res.json())
                     .map((res) => {
-                        console.log ('res status: ' + res.token);
+                        console.log('res status: ' + res.status);
                         if (res){
                             localStorage.setItem('auth_token', res.token);
                             this.loggedIn = true;
-                            return res.token;
+                            return res.status;
                         }
                         else{
                             return false;
@@ -43,7 +42,10 @@ export class authService{
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', this.auth_type + ' ' + token);
         return this._http.get(this.base_url+this.auth_me_url,{headers})
-            .map((res:Response) => res)
-            .catch((error:any) => Observable.throw(false));
+            .map((res:Response) => res.json())
+            .map((res) =>{
+                console.log(res);
+                return res;
+            });
     }
 }
